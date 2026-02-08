@@ -1,579 +1,563 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Jagdeep Singh - Mechanical Design Portfolio | Off-Road ATV Roll Cage Design and Simulation" />
+  <title>Jagdeep Singh | Mechanical Design Portfolio</title>
+  <style>
+    :root{
+      --bg:#f6f8fb;
+      --surface:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --line:#e2e8f0;
+      --accent:#2563eb;
+      --radius:14px;
+      --shadow:0 10px 24px rgba(15,23,42,.07);
+      --max:1120px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.55;
+    }
+    a{text-decoration:none;color:inherit}
+    img{max-width:100%;display:block}
+    .container{max-width:var(--max);margin:0 auto;padding:0 20px}
+    .section{padding:64px 0}
+    .card{
+      background:var(--surface);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+
+    /* Nav */
+    .nav-wrap{
+      position:sticky; top:0; z-index:50;
+      background:rgba(246,248,251,.9);
+      backdrop-filter: blur(8px);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      height:64px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+    }
+    .brand{
+      font-weight:800;
+      letter-spacing:.2px;
+      display:flex;align-items:center;gap:10px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;background:var(--accent);
+      box-shadow:0 0 0 6px rgba(37,99,235,.12);
+    }
+    .links{display:flex;gap:18px;flex-wrap:wrap}
+    .links a{font-weight:700;font-size:.94rem;color:var(--muted)}
+    .links a:hover{color:var(--text)}
+
+    /* Hero */
+    .hero{padding:72px 0 48px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:18px;
+    }
+    .hero-main{padding:30px}
+    .eyebrow{
+      display:inline-block;
+      font-size:.78rem;
+      font-weight:800;
+      color:var(--accent);
+      border:1px solid rgba(37,99,235,.25);
+      background:rgba(37,99,235,.08);
+      border-radius:999px;
+      padding:6px 10px;
+      margin-bottom:14px;
+    }
+    h1{
+      margin:0 0 8px;
+      font-size:clamp(1.9rem,4vw,2.8rem);
+      line-height:1.1;
+      letter-spacing:-.02em;
+    }
+    .lead{margin:0;color:var(--muted)}
+    .hero-cta{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}
+    .btn{
+      border-radius:10px;
+      padding:10px 14px;
+      font-size:.92rem;
+      font-weight:800;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:.2s ease;
+    }
+    .btn-primary{background:var(--accent);color:#fff}
+    .btn-primary:hover{filter:brightness(.96)}
+    .btn-ghost{background:#fff;border-color:var(--line);color:#0f172a}
+    .btn-ghost:hover{border-color:#cbd5e1}
+    .quick{
+      padding:22px;
+      display:grid;
+      gap:12px;
+      align-content:start;
+    }
+    .quick-row{
+      display:flex;justify-content:space-between;gap:12px;
+      border-bottom:1px dashed var(--line);
+      padding-bottom:8px;
+    }
+    .quick-row:last-child{border-bottom:none}
+    .quick dt{font-weight:700;color:#334155}
+    .quick dd{margin:0;color:var(--muted);text-align:right}
+
+    /* Sections */
+    h2{
+      margin:0 0 8px;
+      font-size:clamp(1.35rem,2.5vw,1.8rem);
+      letter-spacing:-.01em;
+    }
+    .sub{margin:0;color:var(--muted)}
+
+    .about{
+      margin-top:16px;
+      padding:24px;
+    }
+    .about p{margin:0 0 14px;color:#334155}
+    .chips{display:flex;gap:8px;flex-wrap:wrap}
+    .chip{
+      border:1px solid var(--line);
+      border-radius:999px;
+      background:#fff;
+      padding:7px 11px;
+      font-size:.84rem;
+      font-weight:700;
+      color:#1e293b;
+    }
+
+    /* Project */
+    .project{
+      margin-top:16px;
+      padding:24px;
+      display:grid;
+      gap:18px;
+    }
+    .project h3{
+      margin:0;
+      font-size:1.2rem;
+      letter-spacing:-.01em;
+    }
+    .meta{
+      display:flex;flex-wrap:wrap;gap:8px;
+    }
+    .pill{
+      border:1px solid var(--line);
+      border-radius:999px;
+      padding:6px 10px;
+      font-size:.82rem;
+      font-weight:700;
+      color:#334155;
+      background:#f8fafc;
+    }
+    .project p{margin:0;color:#334155}
+
+    .two-col{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:14px;
+    }
+    .list-card{
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:14px;
+      background:#fbfdff;
+    }
+    .list-card h4{
+      margin:0 0 8px;
+      font-size:1rem;
+    }
+    .list-card ul{
+      margin:0;
+      padding-left:18px;
+      color:#334155;
+    }
+
+    /* Results */
+    .results{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:10px;
+    }
+    .result{
+      border:1px solid var(--line);
+      border-radius:12px;
+      padding:12px;
+      background:#fff;
+    }
+    .result b{display:block;font-size:1rem;margin-bottom:2px}
+    .result span{color:var(--muted);font-size:.88rem}
+
+    /* Gallery */
+    .gallery{
+      margin-top:8px;
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:12px;
+    }
+    .figure{
+      border:1px solid var(--line);
+      border-radius:12px;
+      overflow:hidden;
+      background:#fff;
+    }
+    .figure button{
+      display:block;
+      width:100%;
+      border:0;
+      background:#fff;
+      padding:0;
+      cursor:zoom-in;
+    }
+    .figure img{
+      width:100%;
+      max-height:420px;   /* keeps tall FEA screenshots clean */
+      object-fit:contain; /* no cropping of annotations */
+      background:#f8fafc;
+    }
+    .figure figcaption{
+      border-top:1px solid var(--line);
+      padding:10px 12px;
+      font-size:.86rem;
+      color:#334155;
+      background:#fff;
+    }
+
+    /* Contact */
+    .contact{
+      margin-top:16px;
+      padding:22px;
+    }
+    .contact-row{display:flex;flex-wrap:wrap;gap:10px}
+
+    footer{
+      margin-top:20px;
+      border-top:1px solid var(--line);
+      padding:18px 0 26px;
+      color:var(--muted);
+      font-size:.9rem;
+    }
+
+    /* Lightbox */
+    .lightbox{
+      position:fixed; inset:0;
+      background:rgba(2,6,23,.82);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index:100;
+      padding:16px;
+    }
+    .lightbox.open{display:flex}
+    .lightbox-inner{
+      width:min(1100px,96vw);
+      background:#0b1220;
+      border:1px solid rgba(255,255,255,.18);
+      border-radius:12px;
+      overflow:hidden;
+    }
+    .lightbox-top{
+      padding:10px 12px;
+      color:#e2e8f0;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      border-bottom:1px solid rgba(255,255,255,.15);
+      font-size:.9rem;
+    }
+    .lightbox-close{
+      border:1px solid rgba(255,255,255,.3);
+      color:#fff;
+      background:transparent;
+      border-radius:8px;
+      padding:5px 10px;
+      cursor:pointer;
+    }
+    .lightbox img{
+      width:100%;
+      max-height:86vh;
+      object-fit:contain;
+      background:#0b1220;
+    }
+
+    @media (max-width:980px){
+      .hero-grid{grid-template-columns:1fr}
+      .results{grid-template-columns:1fr}
+    }
+    @media (max-width:760px){
+      .gallery{grid-template-columns:1fr}
+      .two-col{grid-template-columns:1fr}
+      .hero-main,.quick,.about,.project,.contact{padding:18px}
+      .nav{height:auto;padding:12px 0}
+    }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!doctype html&gt;</p>
-<p class="p1">&lt;html lang="en"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="description" content="Jagdeep Singh - Mechanical Design Portfolio | Off-Road ATV Roll Cage Design and Simulation" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Jagdeep Singh | Mechanical Design Portfolio&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>:root{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--bg:#f6f8fb;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--surface:#ffffff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--text:#0f172a;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--muted:#475569;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--line:#e2e8f0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--accent:#2563eb;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--radius:14px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--shadow:0 10px 24px rgba(15,23,42,.07);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>--max:1120px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>*{box-sizing:border-box}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>html{scroll-behavior:smooth}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin:0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family:Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:var(--text);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:var(--bg);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.55;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>a{text-decoration:none;color:inherit}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>img{max-width:100%;display:block}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.container{max-width:var(--max);margin:0 auto;padding:0 20px}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.section{padding:64px 0}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:var(--surface);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--line);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:var(--radius);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow:var(--shadow);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Nav */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.nav-wrap{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position:sticky; top:0; z-index:50;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:rgba(246,248,251,.9);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>backdrop-filter: blur(8px);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-bottom:1px solid var(--line);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.nav{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>height:64px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content:space-between;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:16px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.brand{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight:800;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:.2px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:flex;align-items:center;gap:10px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.dot{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width:10px;height:10px;border-radius:999px;background:var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow:0 0 0 6px rgba(37,99,235,.12);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.links{display:flex;gap:18px;flex-wrap:wrap}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.links a{font-weight:700;font-size:.94rem;color:var(--muted)}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.links a:hover{color:var(--text)}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Hero */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero{padding:72px 0 48px}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-grid{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:1.2fr .8fr;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:18px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-main{padding:30px}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.eyebrow{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:inline-block;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:.78rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight:800;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:var(--accent);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(37,99,235,.25);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:rgba(37,99,235,.08);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:6px 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom:14px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>h1{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin:0 0 8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:clamp(1.9rem,4vw,2.8rem);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>line-height:1.1;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:-.02em;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.lead{margin:0;color:var(--muted)}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.hero-cta{margin-top:20px;display:flex;gap:10px;flex-wrap:wrap}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:10px 14px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:.92rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight:800;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid transparent;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor:pointer;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>transition:.2s ease;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn-primary{background:var(--accent);color:#fff}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn-primary:hover{filter:brightness(.96)}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn-ghost{background:#fff;border-color:var(--line);color:#0f172a}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.btn-ghost:hover{border-color:#cbd5e1}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.quick{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:22px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-content:start;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.quick-row{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:flex;justify-content:space-between;gap:12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-bottom:1px dashed var(--line);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding-bottom:8px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.quick-row:last-child{border-bottom:none}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.quick dt{font-weight:700;color:#334155}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.quick dd{margin:0;color:var(--muted);text-align:right}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Sections */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>h2{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin:0 0 8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:clamp(1.35rem,2.5vw,1.8rem);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:-.01em;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.sub{margin:0;color:var(--muted)}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.about{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top:16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:24px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.about p{margin:0 0 14px;color:#334155}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.chips{display:flex;gap:8px;flex-wrap:wrap}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.chip{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--line);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#fff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:7px 11px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:.84rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight:700;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#1e293b;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Project */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.project{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top:16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:24px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:18px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.project h3{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin:0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:1.2rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>letter-spacing:-.01em;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.meta{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:flex;flex-wrap:wrap;gap:8px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.pill{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--line);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:999px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:6px 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:.82rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-weight:700;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#334155;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#f8fafc;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.project p{margin:0;color:#334155}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>.two-col{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:1fr 1fr;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:14px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.list-card{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--line);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:14px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#fbfdff;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.list-card h4{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin:0 0 8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:1rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.list-card ul{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin:0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding-left:18px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#334155;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Results */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.results{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:repeat(3,minmax(0,1fr));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:10px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.result{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--line);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#fff;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.result b{display:block;font-size:1rem;margin-bottom:2px}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.result span{color:var(--muted);font-size:.88rem}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Gallery */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.gallery{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top:8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:grid;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>grid-template-columns:repeat(2,minmax(0,1fr));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>gap:12px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.figure{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid var(--line);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow:hidden;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#fff;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.figure button{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:block;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width:100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#fff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor:zoom-in;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.figure img{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width:100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-height:420px; <span class="Apple-converted-space">  </span>/* keeps tall FEA screenshots clean */</p>
-<p class="p1"><span class="Apple-converted-space">      </span>object-fit:contain; /* no cropping of annotations */</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#f8fafc;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.figure figcaption{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-top:1px solid var(--line);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:10px 12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:.86rem;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#334155;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#fff;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Contact */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.contact{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top:16px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:22px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.contact-row{display:flex;flex-wrap:wrap;gap:10px}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>footer{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-top:20px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-top:1px solid var(--line);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:18px 0 26px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:var(--muted);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>/* Lightbox */</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.lightbox{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>position:fixed; inset:0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:rgba(2,6,23,.82);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content:center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>z-index:100;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:16px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.lightbox.open{display:flex}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.lightbox-inner{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width:min(1100px,96vw);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#0b1220;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.18);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>overflow:hidden;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.lightbox-top{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:10px 12px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#e2e8f0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>display:flex;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>justify-content:space-between;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>align-items:center;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-bottom:1px solid rgba(255,255,255,.15);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-size:.9rem;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.lightbox-close{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border:1px solid rgba(255,255,255,.3);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color:#fff;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:transparent;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius:8px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding:5px 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor:pointer;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.lightbox img{</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width:100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>max-height:86vh;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>object-fit:contain;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background:#0b1220;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width:980px){</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.hero-grid{grid-template-columns:1fr}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.results{grid-template-columns:1fr}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>@media (max-width:760px){</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.gallery{grid-template-columns:1fr}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.two-col{grid-template-columns:1fr}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.hero-main,.quick,.about,.project,.contact{padding:18px}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>.nav{height:auto;padding:12px 0}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="nav-wrap"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container nav"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="brand"&gt;&lt;span class="dot"&gt;&lt;/span&gt;Jagdeep Singh&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;nav class="links" aria-label="Main navigation"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#about"&gt;About&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#project"&gt;Project&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#gallery"&gt;Gallery&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;a href="#contact"&gt;Contact&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/nav&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;header class="hero"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container hero-grid"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;section class="card hero-main"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span class="eyebrow"&gt;Mechanical Design Portfolio&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1&gt;Jagdeep Singh&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="lead"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Mechanical Design Engineer with hands-on experience in tubular structures,</p>
-<p class="p1"><span class="Apple-converted-space">          </span>welded assemblies, CAD development, and design validation support for</p>
-<p class="p1"><span class="Apple-converted-space">          </span>off-road vehicle platforms.</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="hero-cta"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;a class="btn btn-primary" href="#project"&gt;View Featured Project&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;a class="btn btn-ghost" href="assets/resume/Jagdeep_Singh_Resume.pdf" target="_blank" rel="noopener"&gt;Download Resume&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;aside class="card quick"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;dl class="quick-row"&gt;&lt;dt&gt;Location&lt;/dt&gt;&lt;dd&gt;Ontario, Canada&lt;/dd&gt;&lt;/dl&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;dl class="quick-row"&gt;&lt;dt&gt;Primary CAD&lt;/dt&gt;&lt;dd&gt;SolidWorks&lt;/dd&gt;&lt;/dl&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;dl class="quick-row"&gt;&lt;dt&gt;Key Domain&lt;/dt&gt;&lt;dd&gt;Welded Roll-Cage Design&lt;/dd&gt;&lt;/dl&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;dl class="quick-row"&gt;&lt;dt&gt;Workflow&lt;/dt&gt;&lt;dd&gt;CAD → Assembly → CAE Support&lt;/dd&gt;&lt;/dl&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/aside&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;main&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="about" class="section"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;About&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="sub"&gt;Interview-ready overview with one detailed project case study.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card about"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>I focus on practical, manufacturable mechanical design using parametric CAD workflows,</p>
-<p class="p1"><span class="Apple-converted-space">            </span>weldment-driven structures, and assembly-level integration. My work includes design intent</p>
-<p class="p1"><span class="Apple-converted-space">            </span>control, part/assembly detailing, and collaboration with simulation teams for structural assessment.</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="chips"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="chip"&gt;SolidWorks&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="chip"&gt;Weldments&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="chip"&gt;3D Parts &amp; Assemblies&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="chip"&gt;DFM&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="chip"&gt;Interference Checks&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="chip"&gt;ANSYS Collaboration&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="project" class="section" style="padding-top:0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Featured Project&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="sub"&gt;Off-Road All-Terrain Vehicle | Roll Cage Design &amp; Structural Validation Support&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;article class="card project"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;h3&gt;Single-Seat Off-Road ATV Platform Development&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="meta"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="pill"&gt;Role: SolidWorks Designer&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="pill"&gt;Focus: Roll Cage + Assemblies&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span class="pill"&gt;Tools: SolidWorks, Weldments, ANSYS (with CAE team)&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>I contributed to the end-to-end design of a single-seat off-road all-terrain vehicle, with</p>
-<p class="p1"><span class="Apple-converted-space">            </span>primary ownership of the roll-cage architecture and integration support for major assemblies.</p>
-<p class="p1"><span class="Apple-converted-space">            </span>Using SolidWorks Weldments, part modeling, and assembly-level workflows, I developed a manufacturable</p>
-<p class="p1"><span class="Apple-converted-space">            </span>tubular frame, validated packaging clearances, and supported full-vehicle digital build-up.</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>In collaboration with simulation engineers, I assisted with static structural evaluation of the roll cage</p>
-<p class="p1"><span class="Apple-converted-space">            </span>under front, rear, and side impact load cases to assess occupant protection behavior under demanding</p>
-<p class="p1"><span class="Apple-converted-space">            </span>loading conditions. Deformation and equivalent stress contour outputs were used to identify reinforcement</p>
-<p class="p1"><span class="Apple-converted-space">            </span>opportunities and improve structural robustness.</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="two-col"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="list-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;h4&gt;My Contributions&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Developed roll-cage geometry using SolidWorks weldment members.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Built and maintained part/assembly structure for full-vehicle integration.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Supported suspension/chassis packaging and clearance checks.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Prepared design iterations based on CAE feedback.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="list-card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;h4&gt;Validation Scope&lt;/h4&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Front impact case: deformation + von Mises stress review.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Rear impact case: deformation + stress distribution review.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Side impact case: deformation + stress hotspot identification.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;li&gt;Safety-driven iteration for improved cage stiffness/energy path.&lt;/li&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/ul&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="results"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="result"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;b&gt;Front Impact&lt;/b&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;span&gt;Max Deformation: 0.931 mm | Max Eq. Stress: 362.36 MPa&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="result"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;b&gt;Rear Impact&lt;/b&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;span&gt;Max Deformation: 0.702 mm | Max Eq. Stress: 245.27 MPa&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="result"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;b&gt;Side Impact&lt;/b&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;span&gt;Max Deformation: 1.211 mm | Max Eq. Stress: 213.58 MPa&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/article&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="gallery" class="section" style="padding-top:0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Project Gallery&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="sub"&gt;Click any image to open full-size view.&lt;/p&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="gallery"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;figure class="figure"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button type="button" data-title="Full ATV CAD Assembly" data-src="assets/images/atv/SCR-20260208-mugy.png"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;img src="assets/images/atv/SCR-20260208-mugy.png" alt="Full off-road ATV CAD assembly" loading="lazy" decoding="async" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;figcaption&gt;Full vehicle assembly model with roll cage and integrated subsystems.&lt;/figcaption&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/figure&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;figure class="figure"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button type="button" data-title="Roll Cage Concept Geometry" data-src="assets/images/atv/SCR-20260208-muip.png"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;img src="assets/images/atv/SCR-20260208-muip.png" alt="Initial roll cage concept geometry" loading="lazy" decoding="async" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;figcaption&gt;Initial roll-cage tubular frame concept.&lt;/figcaption&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/figure&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;figure class="figure"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button type="button" data-title="Roll Cage Top/Side Views" data-src="assets/images/atv/SCR-20260208-muod.jpeg"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;img src="assets/images/atv/SCR-20260208-muod.jpeg" alt="Roll cage top and side views" loading="lazy" decoding="async" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;figcaption&gt;Top and side orthographic views of roll-cage layout.&lt;/figcaption&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/figure&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;figure class="figure"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button type="button" data-title="Roll Cage Front/Isometric Views" data-src="assets/images/atv/SCR-20260208-mupy.jpeg"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;img src="assets/images/atv/SCR-20260208-mupy.jpeg" alt="Roll cage front and isometric views" loading="lazy" decoding="async" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;figcaption&gt;Front and isometric views of final cage architecture.&lt;/figcaption&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/figure&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;figure class="figure"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button type="button" data-title="Front Impact FEA Results" data-src="assets/images/atv/SCR-20260208-muti.png"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;img src="assets/images/atv/SCR-20260208-muti.png" alt="Front impact deformation and stress results" loading="lazy" decoding="async" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;figcaption&gt;Front impact: total deformation and equivalent stress contours.&lt;/figcaption&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/figure&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;figure class="figure"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button type="button" data-title="Rear Impact FEA Results" data-src="assets/images/atv/SCR-20260208-muvl.png"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;img src="assets/images/atv/SCR-20260208-muvl.png" alt="Rear impact deformation and stress results" loading="lazy" decoding="async" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;figcaption&gt;Rear impact: deformation/stress distribution for cage integrity assessment.&lt;/figcaption&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/figure&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;figure class="figure"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;button type="button" data-title="Side Impact FEA Results" data-src="assets/images/atv/SCR-20260208-muyu.png"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;img src="assets/images/atv/SCR-20260208-muyu.png" alt="Side impact deformation and stress results" loading="lazy" decoding="async" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;figcaption&gt;Side impact case used for lateral load-path and hotspot review.&lt;/figcaption&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/figure&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;section id="contact" class="section"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="container"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2&gt;Contact&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="sub"&gt;Keep this section direct and recruiter-friendly.&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="card contact"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div class="contact-row"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="btn btn-ghost" href="mailto:your-email@example.com"&gt;your-email@example.com&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="btn btn-ghost" href="https://www.linkedin.com/in/your-linkedin/" target="_blank" rel="noopener"&gt;LinkedIn&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;a class="btn btn-ghost" href="https://github.com/your-github-username" target="_blank" rel="noopener"&gt;GitHub&lt;/a&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/section&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/main&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;footer&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="container"&gt;© &lt;span id="year"&gt;&lt;/span&gt; Jagdeep Singh. Mechanical Design Portfolio.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/footer&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;!-- Lightbox --&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="lightbox-inner"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div class="lightbox-top"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;span id="lightboxTitle"&gt;Image Preview&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button class="lightbox-close" id="lightboxClose" type="button"&gt;Close&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;img id="lightboxImage" alt="Expanded project image" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Footer year</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById("year").textContent = new Date().getFullYear();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Lightbox logic</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const lb = document.getElementById("lightbox");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const lbImg = document.getElementById("lightboxImage");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const lbTitle = document.getElementById("lightboxTitle");</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const lbClose = document.getElementById("lightboxClose");</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function openLightbox(src, title){</p>
-<p class="p1"><span class="Apple-converted-space">      </span>lbImg.src = src;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>lbTitle.textContent = title || "Image Preview";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>lb.classList.add("open");</p>
-<p class="p1"><span class="Apple-converted-space">      </span>lb.setAttribute("aria-hidden", "false");</p>
-<p class="p1"><span class="Apple-converted-space">      </span>document.body.style.overflow = "hidden";</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>function closeLightbox(){</p>
-<p class="p1"><span class="Apple-converted-space">      </span>lb.classList.remove("open");</p>
-<p class="p1"><span class="Apple-converted-space">      </span>lb.setAttribute("aria-hidden", "true");</p>
-<p class="p1"><span class="Apple-converted-space">      </span>lbImg.src = "";</p>
-<p class="p1"><span class="Apple-converted-space">      </span>document.body.style.overflow = "";</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.querySelectorAll(".figure button").forEach(btn =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>btn.addEventListener("click", () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>openLightbox(btn.dataset.src, btn.dataset.title);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>});</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>lbClose.addEventListener("click", closeLightbox);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>lb.addEventListener("click", (e) =&gt; { if (e.target === lb) closeLightbox(); });</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.addEventListener("keydown", (e) =&gt; { if (e.key === "Escape") closeLightbox(); });</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+  <div class="nav-wrap">
+    <div class="container nav">
+      <div class="brand"><span class="dot"></span>Jagdeep Singh</div>
+      <nav class="links" aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#project">Project</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <header class="hero">
+    <div class="container hero-grid">
+      <section class="card hero-main">
+        <span class="eyebrow">Mechanical Design Portfolio</span>
+        <h1>Jagdeep Singh</h1>
+        <p class="lead">
+          Mechanical Design Engineer with hands-on experience in tubular structures,
+          welded assemblies, CAD development, and design validation support for
+          off-road vehicle platforms.
+        </p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="#project">View Featured Project</a>
+          <a class="btn btn-ghost" href="assets/resume/Jagdeep_Singh_Resume.pdf" target="_blank" rel="noopener">Download Resume</a>
+        </div>
+      </section>
+
+      <aside class="card quick">
+        <dl class="quick-row"><dt>Location</dt><dd>Ontario, Canada</dd></dl>
+        <dl class="quick-row"><dt>Primary CAD</dt><dd>SolidWorks</dd></dl>
+        <dl class="quick-row"><dt>Key Domain</dt><dd>Welded Roll-Cage Design</dd></dl>
+        <dl class="quick-row"><dt>Workflow</dt><dd>CAD → Assembly → CAE Support</dd></dl>
+      </aside>
+    </div>
+  </header>
+
+  <main>
+    <section id="about" class="section">
+      <div class="container">
+        <h2>About</h2>
+        <p class="sub">Interview-ready overview with one detailed project case study.</p>
+        <div class="card about">
+          <p>
+            I focus on practical, manufacturable mechanical design using parametric CAD workflows,
+            weldment-driven structures, and assembly-level integration. My work includes design intent
+            control, part/assembly detailing, and collaboration with simulation teams for structural assessment.
+          </p>
+          <div class="chips">
+            <span class="chip">SolidWorks</span>
+            <span class="chip">Weldments</span>
+            <span class="chip">3D Parts & Assemblies</span>
+            <span class="chip">DFM</span>
+            <span class="chip">Interference Checks</span>
+            <span class="chip">ANSYS Collaboration</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="project" class="section" style="padding-top:0">
+      <div class="container">
+        <h2>Featured Project</h2>
+        <p class="sub">Off-Road All-Terrain Vehicle | Roll Cage Design & Structural Validation Support</p>
+
+        <article class="card project">
+          <h3>Single-Seat Off-Road ATV Platform Development</h3>
+          <div class="meta">
+            <span class="pill">Role: SolidWorks Designer</span>
+            <span class="pill">Focus: Roll Cage + Assemblies</span>
+            <span class="pill">Tools: SolidWorks, Weldments, ANSYS (with CAE team)</span>
+          </div>
+
+          <p>
+            I contributed to the end-to-end design of a single-seat off-road all-terrain vehicle, with
+            primary ownership of the roll-cage architecture and integration support for major assemblies.
+            Using SolidWorks Weldments, part modeling, and assembly-level workflows, I developed a manufacturable
+            tubular frame, validated packaging clearances, and supported full-vehicle digital build-up.
+          </p>
+
+          <p>
+            In collaboration with simulation engineers, I assisted with static structural evaluation of the roll cage
+            under front, rear, and side impact load cases to assess occupant protection behavior under demanding
+            loading conditions. Deformation and equivalent stress contour outputs were used to identify reinforcement
+            opportunities and improve structural robustness.
+          </p>
+
+          <div class="two-col">
+            <div class="list-card">
+              <h4>My Contributions</h4>
+              <ul>
+                <li>Developed roll-cage geometry using SolidWorks weldment members.</li>
+                <li>Built and maintained part/assembly structure for full-vehicle integration.</li>
+                <li>Supported suspension/chassis packaging and clearance checks.</li>
+                <li>Prepared design iterations based on CAE feedback.</li>
+              </ul>
+            </div>
+            <div class="list-card">
+              <h4>Validation Scope</h4>
+              <ul>
+                <li>Front impact case: deformation + von Mises stress review.</li>
+                <li>Rear impact case: deformation + stress distribution review.</li>
+                <li>Side impact case: deformation + stress hotspot identification.</li>
+                <li>Safety-driven iteration for improved cage stiffness/energy path.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="results">
+            <div class="result">
+              <b>Front Impact</b>
+              <span>Max Deformation: 0.931 mm | Max Eq. Stress: 362.36 MPa</span>
+            </div>
+            <div class="result">
+              <b>Rear Impact</b>
+              <span>Max Deformation: 0.702 mm | Max Eq. Stress: 245.27 MPa</span>
+            </div>
+            <div class="result">
+              <b>Side Impact</b>
+              <span>Max Deformation: 1.211 mm | Max Eq. Stress: 213.58 MPa</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="gallery" class="section" style="padding-top:0">
+      <div class="container">
+        <h2>Project Gallery</h2>
+        <p class="sub">Click any image to open full-size view.</p>
+
+        <div class="gallery">
+          <figure class="figure">
+            <button type="button" data-title="Full ATV CAD Assembly" data-src="assets/images/atv/SCR-20260208-mugy.png">
+              <img src="assets/images/atv/SCR-20260208-mugy.png" alt="Full off-road ATV CAD assembly" loading="lazy" decoding="async" />
+            </button>
+            <figcaption>Full vehicle assembly model with roll cage and integrated subsystems.</figcaption>
+          </figure>
+
+          <figure class="figure">
+            <button type="button" data-title="Roll Cage Concept Geometry" data-src="assets/images/atv/SCR-20260208-muip.png">
+              <img src="assets/images/atv/SCR-20260208-muip.png" alt="Initial roll cage concept geometry" loading="lazy" decoding="async" />
+            </button>
+            <figcaption>Initial roll-cage tubular frame concept.</figcaption>
+          </figure>
+
+          <figure class="figure">
+            <button type="button" data-title="Roll Cage Top/Side Views" data-src="assets/images/atv/SCR-20260208-muod.jpeg">
+              <img src="assets/images/atv/SCR-20260208-muod.jpeg" alt="Roll cage top and side views" loading="lazy" decoding="async" />
+            </button>
+            <figcaption>Top and side orthographic views of roll-cage layout.</figcaption>
+          </figure>
+
+          <figure class="figure">
+            <button type="button" data-title="Roll Cage Front/Isometric Views" data-src="assets/images/atv/SCR-20260208-mupy.jpeg">
+              <img src="assets/images/atv/SCR-20260208-mupy.jpeg" alt="Roll cage front and isometric views" loading="lazy" decoding="async" />
+            </button>
+            <figcaption>Front and isometric views of final cage architecture.</figcaption>
+          </figure>
+
+          <figure class="figure">
+            <button type="button" data-title="Front Impact FEA Results" data-src="assets/images/atv/SCR-20260208-muti.png">
+              <img src="assets/images/atv/SCR-20260208-muti.png" alt="Front impact deformation and stress results" loading="lazy" decoding="async" />
+            </button>
+            <figcaption>Front impact: total deformation and equivalent stress contours.</figcaption>
+          </figure>
+
+          <figure class="figure">
+            <button type="button" data-title="Rear Impact FEA Results" data-src="assets/images/atv/SCR-20260208-muvl.png">
+              <img src="assets/images/atv/SCR-20260208-muvl.png" alt="Rear impact deformation and stress results" loading="lazy" decoding="async" />
+            </button>
+            <figcaption>Rear impact: deformation/stress distribution for cage integrity assessment.</figcaption>
+          </figure>
+
+          <figure class="figure">
+            <button type="button" data-title="Side Impact FEA Results" data-src="assets/images/atv/SCR-20260208-muyu.png">
+              <img src="assets/images/atv/SCR-20260208-muyu.png" alt="Side impact deformation and stress results" loading="lazy" decoding="async" />
+            </button>
+            <figcaption>Side impact case used for lateral load-path and hotspot review.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2>Contact</h2>
+        <p class="sub">Keep this section direct and recruiter-friendly.</p>
+        <div class="card contact">
+          <div class="contact-row">
+            <a class="btn btn-ghost" href="mailto:your-email@example.com">your-email@example.com</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/your-linkedin/" target="_blank" rel="noopener">LinkedIn</a>
+            <a class="btn btn-ghost" href="https://github.com/your-github-username" target="_blank" rel="noopener">GitHub</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Jagdeep Singh. Mechanical Design Portfolio.</div>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
+    <div class="lightbox-inner">
+      <div class="lightbox-top">
+        <span id="lightboxTitle">Image Preview</span>
+        <button class="lightbox-close" id="lightboxClose" type="button">Close</button>
+      </div>
+      <img id="lightboxImage" alt="Expanded project image" />
+    </div>
+  </div>
+
+  <script>
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Lightbox logic
+    const lb = document.getElementById("lightbox");
+    const lbImg = document.getElementById("lightboxImage");
+    const lbTitle = document.getElementById("lightboxTitle");
+    const lbClose = document.getElementById("lightboxClose");
+
+    function openLightbox(src, title){
+      lbImg.src = src;
+      lbTitle.textContent = title || "Image Preview";
+      lb.classList.add("open");
+      lb.setAttribute("aria-hidden", "false");
+      document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox(){
+      lb.classList.remove("open");
+      lb.setAttribute("aria-hidden", "true");
+      lbImg.src = "";
+      document.body.style.overflow = "";
+    }
+
+    document.querySelectorAll(".figure button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        openLightbox(btn.dataset.src, btn.dataset.title);
+      });
+    });
+
+    lbClose.addEventListener("click", closeLightbox);
+    lb.addEventListener("click", (e) => { if (e.target === lb) closeLightbox(); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
+  </script>
 </body>
 </html>
